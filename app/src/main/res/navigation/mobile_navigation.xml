@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.ragtag.ttub.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_tiles"
+        android:name="com.ragtag.ttub.ui.tiles.TilesFragment"
+        android:label="@string/title_tiles"
+        tools:layout="@layout/fragment_tiles" />
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.ragtag.ttub.ui.maps.MapsFragment"
+        android:label="@string/title_maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/navigation_sheets"
+        android:name="com.ragtag.ttub.ui.sheets.SheetsFragment"
+        android:label="@string/title_sheets"
+        tools:layout="@layout/fragment_sheets" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.ragtag.ttub.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ragtag.ttub.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+</navigation>
