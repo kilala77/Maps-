@@ -1,4 +1,4 @@
-package com.ragtag.ttub.ui.maps
+package com.ragtag.ttub
 
 import android.app.Activity
 import android.content.Context
@@ -10,26 +10,21 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.ragtag.ttub.R
 import com.ragtag.ttub.databinding.FragmentMapsBinding
-import com.ragtag.ttub.ui.popUpFragment
+import com.ragtag.ttub.ui.maps.MapsViewModel
 import kotlinx.android.synthetic.main.fragment_maps.*
-import kotlinx.android.synthetic.main.fragment_maps.view.*
 
-
-class MapsFragment : Fragment() {
+class CreateMonster : DialogFragment() {
 
     protected var ctx: Context? = null
     var pickedPhoto : Uri? = null
@@ -39,7 +34,6 @@ class MapsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,7 +56,7 @@ class MapsFragment : Fragment() {
             pickedPhoto(view) //android.app.ContextImpl$ApplicationContentResolver@9a4c52d
 //            startActivity(Intent(activity, IINE::class.java))
         }
-                    //called pickedphoto() when users click the image view
+        //called pickedphoto() when users click the image view
 
 
         return root
@@ -103,7 +97,7 @@ class MapsFragment : Fragment() {
             val myLayout: View = LayoutInflater.from(this.context).inflate(com.ragtag.ttub.R.layout.fragment_maps, null)
             if (Build.VERSION.SDK_INT >= 28){
                 val source = ImageDecoder.createSource(this.requireActivity().contentResolver, pickedPhoto!!)
-                    pickedBitMap = ImageDecoder.decodeBitmap(source)
+                pickedBitMap = ImageDecoder.decodeBitmap(source)
 
                 imageView.setImageBitmap(pickedBitMap)
                 // if newer phone uses ImageDecoder.createSource to create source first
@@ -114,21 +108,5 @@ class MapsFragment : Fragment() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
-
-/////////////////////////////////////
-
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val button: Button = view.findViewById(R.id.Character_button)
-
-        button.setOnClickListener {
-            val Character = popUpFragment()
-            Character.show((activity as AppCompatActivity).supportFragmentManager, "Character")
-        }
-    }
- // this is the button which will take you to a popup button to select the characters
 
 }
